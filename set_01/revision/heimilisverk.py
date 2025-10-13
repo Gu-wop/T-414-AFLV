@@ -3,16 +3,19 @@ import sys
 
 def main():
     data = sys.stdin.read().splitlines()
+
     if not data:
         return
 
     chores = data[1:]
     seen = set()
     out = []
+
     for chore in chores:
         if chore not in seen:
             seen.add(chore)
             out.append(chore)
+
     sys.stdout.write("\n".join(out))
 
 

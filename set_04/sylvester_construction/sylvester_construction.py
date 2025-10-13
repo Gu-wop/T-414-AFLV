@@ -6,6 +6,8 @@ def hadamard_element(i, j, n):
         return 1
 
     half = n // 2
+    # if i < 5:
+    #     print(f"i={i}, j={j}, n={n}, half={half}")
 
     if i < half and j < half:
         return hadamard_element(i, j, half)
@@ -34,9 +36,13 @@ def solve():
         for i in range(y, y + h):
             row = []
             for j in range(x, x + w):
+                # print(f"i={i}, j={j}, n={n}")
                 element = hadamard_element(i, j, n)
+                print(f"element at ({i},{j}) = {element}")  # DEBUG
                 row.append(str(element))
+
             sys.stdout.write(" ".join(row) + "\n")
+
         sys.stdout.write("\n")
 
 

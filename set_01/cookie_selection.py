@@ -1,6 +1,7 @@
 import sys
 import heapq
 
+
 def main():
     lower = []
     upper = []
@@ -8,6 +9,7 @@ def main():
 
     def rebalance():
         if len(upper) < len(lower):
+            print(lower)
             heapq.heappush(upper, -heapq.heappop(lower))
         elif len(upper) > len(lower) + 1:
             heapq.heappush(lower, -heapq.heappop(upper))
@@ -16,7 +18,7 @@ def main():
         if not i:
             continue
         s = i.strip()
-        if s == b'#':
+        if s == b"#":
             val = heapq.heappop(upper)
             out_lines.append(str(val))
             rebalance()
@@ -32,6 +34,7 @@ def main():
             rebalance()
 
     sys.stdout.write("\n".join(out_lines))
+
 
 if __name__ == "__main__":
     main()
